@@ -1,147 +1,48 @@
 (function(){
 'use strict';
 
-// console.log(customers);
-
-
-// function insertData(title, image, forename, surname, email, info){
-//
-//
-//   var custInfo = `
-//   <title>${title}</title>
-//     <div class="container-fluid">
-//       <div class="row_2">
-//         <div class="col-md-3">
-//           <img class='cust_photo' src="${image}" alt="">
-//           <h3 class='name'>${forename} ${surname}</h3>
-//           <h4 class='email'>${email}</h4>
-//           <p class='cust_info'>${info}</p>
-//         </div>
-//         <div class="col-md-3">
-//           <img class='cust_photo' src="" alt="">
-//           <h3 class='name'>First Name</h3>
-//           <h4 class='email'>email address</h4>
-//           <p class='cust_info'>info</p>
-//         </div>
-//         <div class="col-md-3">
-//           <img class='cust_photo' src="" alt="">
-//           <h3 class='name'>First Name</h3>
-//           <h4 class='email'>email address</h4>
-//           <p class='cust_info'>info</p>
-//         </div>
-//         <div class="col-md-3">
-//           <img class='cust_photo' src="" alt="">
-//           <h3 class='name'>First Name</h3>
-//           <h4 class='email'>email address</h4>
-//           <p class='cust_info'>info</p>
-//         </div>
-//       </div>
-//     </div>
-//   `;
-//   console.log(custInfo);
-// }
 // console.log(customers.results);
 
 
-var empArray = customers.results;         //Main array//
 
+var appContainer = document.querySelector(".wrapper");
 
-//pulling out name data (title, first, last) & putting into array //
-var nameArray = [];
+for(var i = 0; i < customers.results.length; i++){
 
-empArray.forEach(function(item, counter){
-  return nameArray.push(item.name)
-});
-// console.log(nameArray);
+// variables listed for different customer information properties//
+  var photo = customers.results[i].picture.large;
 
+  var fullName = customers.results[i].name.first + ' ' + customers.results[i].name.last;
 
-//formatting name data to title>first name>last name in array//
-var fullArray= [];
+  var email = customers.results[i].email;
 
-fullArray.forEach(function(name){
-  name = document.createElement('div');
-  name.textContent = name[i];
-});
-console.log(fullArray);
+  var address = customers.results[i].location.street + ' ' + customers.results[i].location.city + ', ' + customers.results[i].location.state + ', ' + customers.results[i].location.postcode;
 
-nameArray.forEach(function(item, counter, originalArray){
-  return fullArray.push(item.title + "." + " " + item.first + " " + item.last)
-});
-// console.log(fullArray);
+  var number = customers.results[i].cell;
+  // console.log(number);
 
+// template literal puts it all in structure
 
+var template = `
 
-//pulling out and putting email addresses into an array//
-var emailArray= [];
+  <div class="col-md-3>
+    <div class="row">
+      <div class="thumbnail">
+        <img src="${photo}" alt="...">
 
-emailArray.forEach(function(email){
-  var email = document.createElement('h4');
-  email.textContent = email[i];
-});
-console.log(emailArray);
+          <h2>${fullName}</h2>
+          <h3>${email}</h3>
+          <p>${address}</p>
+          <p>${number}</p>
+        
+      </div>
+    </div>
+  </div>
+  `;
 
-empArray.forEach(function(item){
-  return emailArray.push(item.email)
-});
-// console.log(emailArray);
+  appContainer.innerHTML += template;
 
-
-
-//pulling out physical address info//
-var locArray = [];
-
-locArray.forEach(function(loc){
-  var place = document.createElement('p');
-  place.textContent = loc[i];
-});
-console.log(locArray);
-
-empArray.forEach(function(item){
-  return locArray.push(item.location.street + ' ' + item.location.city + ', ' + item.location.state + ', ' + item.location.postcode)
-});
-// console.log(locArray);
-
-
-
-//pull phone number//
-var numberArray = [];
-
-numberArray.forEach(function(num){
-  var phone = document.createElement('p');
-  phone.textContent = num[i];
-});
-console.log(numberArray);
-
-empArray.forEach(function(item, counter){
-  return numberArray.push(item.cell)
-});
-// console.log(numberArray);
-
-
-//pull images//
-var picArray = [];
-
-picArray.forEach(function(pic){
-  var photo = document.createElement('img');
-  photo.src = pic[i];
-})
-console.log(picArray);
-
-empArray.forEach(function(item, counter){
-  return picArray.push(item.picture.large)
-});
-
-
-////////////////////////////
-
-
-// var profile = document.createElement('div');
-var profile = picArray[0] + ' ' + fullArray[0] + ' ' + emailArray[0] + locArray[0] + numberArray[0];
-console.log(profile);
-console.log(fullArray[0]);
-
-
-
+}
 
 
 
