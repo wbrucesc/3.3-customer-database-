@@ -1,0 +1,30 @@
+/* Bootstrap Variables */
+$icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+
+/* Import Bootstrap */
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+
+}
+
+.main_content{
+  margin: 0 auto;
+  width: 80%;
+}
+
+
+h2{
+  text-align: center;
+}
+
+.row_1, .row_2, .row_3{
+  text-align: center;
+}
