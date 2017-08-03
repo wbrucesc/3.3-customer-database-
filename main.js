@@ -1,7 +1,7 @@
 (function(){
 'use strict';
 
-// console.log(customers.results);
+console.log(customers.results);
 
 
 
@@ -19,6 +19,8 @@ for(var i = 0; i < customers.results.length; i++){
   var address = customers.results[i].location.street + ' ' + customers.results[i].location.city + ', ' + customers.results[i].location.state + ', ' + customers.results[i].location.postcode;
 
   var number = customers.results[i].cell;
+
+  var ssn = customers.results[i].id.value;
   // console.log(number);
 
 // template literal puts it all in structure
@@ -34,7 +36,7 @@ var template = `
           <h3>${email}</h3>
           <p>${address}</p>
           <p>${number}</p>
-        
+          <span>${ssn}</span>
       </div>
     </div>
   </div>
