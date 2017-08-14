@@ -4,24 +4,17 @@
 console.log(customers.results);
 
 
-
 var appContainer = document.querySelector(".wrapper");
+var data = customers.results;
 
-for(var i = 0; i < customers.results.length; i++){
+data.forEach(function(person, i){
+  var photo = person.picture.large;
+  var fullName = person.name.first + ' ' + person.name.last;
+  var email = person.email;
+  var address = person.location.street + ' ' + person.location.city + ', ' + person.location.state + ', ' + person.location.postcode;
+  var number = person.cell;
+  var ssn = person.id.value;
 
-// variables listed for different customer information properties//
-  var photo = customers.results[i].picture.large;
-
-  var fullName = customers.results[i].name.first + ' ' + customers.results[i].name.last;
-
-  var email = customers.results[i].email;
-
-  var address = customers.results[i].location.street + ' ' + customers.results[i].location.city + ', ' + customers.results[i].location.state + ', ' + customers.results[i].location.postcode;
-
-  var number = customers.results[i].cell;
-
-  var ssn = customers.results[i].id.value;
-  // console.log(number);
 
 // template literal puts it all in structure
 
@@ -42,28 +35,27 @@ var template = `
   </div>
   `;
 
-  appContainer.innerHTML += template;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+appContainer.innerHTML = appContainer.innerHTML + template;
+});
 
 
 }());
+
+
+// for(var i = 0; i < data.length; i++){
+
+// variables listed for different customer information properties//
+  // var photo = data[i].picture.large;
+  //
+  // var fullName = data[i].name.first + ' ' + data[i].name.last;
+  //
+  // var email = data[i].email;
+  //
+  // var address = data[i].location.street + ' ' + data[i].location.city + ', ' + data[i].location.state + ', ' + data[i].location.postcode;
+  //
+  // var number = data[i].cell;
+  //
+  // var ssn = data[i].id.value;
+  // console.log(number);
+
+  // }
